@@ -12,46 +12,51 @@ Process
 
 The script run_analysis.R performs the following process to clean up the data and create tiny data sets:
 
-Merge the training and test sets to create one data set.
+Merges the training and the test sets to create one data set.
 
-Reads features.txt and uses only the measurements on the mean and standard deviation for each measurement.
+Extracts only the measurements on the mean and standard deviation for each measurement.
 
-Reads activity_labels.txt and applies human readable activity names to name the activities in the data set.
+Uses descriptive activity names to name the activities in the data set
 
-Labels the data set with descriptive names. (Names are converted to lower case; underscores and brackets are removed.)
+Appropriately labels the data set with descriptive variable names.
 
-Merges the features with activity labels and subject IDs. The result is saved as tidy_Data.txt.
-
-The average of each measurement for each activity and each subject is merged to a second data set. The result is saved as tidyData2.txt.
+From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 Variables
 
-testData - table contents of test/X_test.txt
-trainData - table contents of train/X_train.txt
-X - Measurement data. Combined data set of the two above variables
-testSub - table contents of test/subject_test.txt
-trainSub - table contents of test/subject_train.txt
-S - Subjects. Combined data set of the two above variables
-testLabel - table contents of test/y_test.txt
-trainLabel - table contents of train/y_train.txt
-Y - Data Labels. Combined data set of the two above variables.
-featuresList - table contents of features.txt
-features - Names of for data columns derived from featuresList
-keepColumns - logical vector of which features to use in tidy data set
-activities - table contents of activity_labels.txt. Human readable
-tidyData - subsetted, human-readable data ready for output according to project description.
-uS - unique subjects from S
-nS - number of unique subjects
-nA - number of activities
-nC - number of columns in tidyData
-td - second tiny data set with average of each variable for each activity and subject
-Output
+Values of Varible Activity consist of data from “Y_train.txt” and “Y_test.txt”
 
-tidy_Data.txt
+values of Varible Subject consist of data from “subject_train.txt” and subject_test.txt"
+
+Values of Varibles Features consist of data from “X_train.txt” and “X_test.txt”
+
+Names of Varibles Features come from “features.txt”
+
+levels of Varible Activity come from “activity_labels.txt”
+
+So we will use Activity, Subject and Features as part of descriptive variable names for data in data frame.
+
+prefix t is replaced by time
+Acc is replaced by Accelerometer
+Gyro is replaced by Gyroscope
+prefix f is replaced by frequency
+Mag is replaced by Magnitude
+BodyBody is replaced by Body
+
+names(Data)
+##  [1] "timeBodyAccelerometer-mean()-X"                
+##  [2] "timeBodyAccelerometer-mean()-Y"                
+##  [3] "timeBodyAccelerometer-mean()-Z"                
+##  [4] "timeBodyAccelerometer-std()-X"                 
+##  [5] "timeBodyAccelerometer-std()-Y"                 
+##  [6] "timeBodyAccelerometer-std()-Z"                 
+##  [7] "timeGravityAccelerometer-mean()-X"             
+##  [8] "timeGravityAccelerometer-mean()-Y"             
+##  [9] "timeGravityAccelerometer-mean()-Z"             
+## [10] "timeGravityAccelerometer-std()-X"    
+.
+.
+.
 
 
-tidy_Data.txt is a 180x68 data frame.
 
-The first column contains subject IDs.
-The second column contains activity names.
-The averages for each of the 66 attributes are in columns 3-68.
