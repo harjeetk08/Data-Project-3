@@ -1,3 +1,7 @@
+
+README.md is same as run_analysis.R it explains the code used to get the tidy_data.txt data. 
+
+
 #Part 1 Download data and read in data
 ##1 
 if(!file.exists("./data")){dir.create("./data")}
